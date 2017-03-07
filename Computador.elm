@@ -1,28 +1,26 @@
 module Main exposing (..)
 
 import Html exposing (div, button, text)
+import Html.Events exposing (onClick)
 
 main =
-     Html.begginerProgram { model = modelo, view = vista, update = atualizar }
+     Html.beginnerProgram { model = modelo, view = vista, update = atualizar }
 
 
 
 -- Modelo
-    modelo =
+modelo =
       0
 
 
 
 -- Vista
 
-
-
-
 vista modelo =
    div []
-       [ button [] [text "-"]
+       [ button [onClick Decrementar ] [text "-"]
        , text (toString modelo)
-       , button [] [ text "+" ]
+       , button [onClick Incrementar ] [ text "+" ]
        ]
 
 
@@ -38,5 +36,5 @@ atualizar mensagem  modelo =
          Incrementar ->
           modelo + 1
 
-          Decrementar ->
-            modelo - 1
+         Decrementar ->
+          modelo - 1
